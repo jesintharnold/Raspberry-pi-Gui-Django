@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: 0;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	align-items: center;
+	background-color: #111111;
+	display: flex;
+	font-family: 'Poppins', sans-serif;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0 auto;
+}
+
+ul:before {
+
+	bottom: -50%;
+	content: '';
+	height: 100%;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+ul {
+	align-items: center;
+	background-color:black;
+	border: 3px solid #fff;
+	border-radius: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 90%;
+	overflow: hidden;
+	padding: 20px 0px;
+	position: relative;
+	width: 300px;
+
+}
+
+ul li {
+	list-style: none;
+	margin: 15px;
+	position: relative;
+	text-align: center;
+}
+
+ul li label {
+	position: relative;
+}
+
+ul li label input[type="checkbox"] {
+	cursor: pointer;
+	opacity: 0;
+	position: absolute;
+}
+
+ul li label input[type="checkbox"]:checked ~ .icon-box {
+	background-color: #fff;
+	border-color: #ffffff;
+	box-shadow: 0 0 10px rgba(33, 156, 243, 0.5),
+							0 0 20px rgba(33, 156, 243, 0.5),
+							0 0 30px rgba(33, 156, 243, 0.5),
+							0 0 10px #03fc03 inset;
+}
+
+ul li label input[type="checkbox"]:checked ~ .icon-box .fa {
+	color: #ffffff;
+	text-shadow: 0 0 10px #219cf3,
+							 0 0 10px #219cf3;
+}
+
+ul li label .icon-box {
+	align-items: center;
+	background-color: #ffff;
+    border: 3px solid #ffff;
+	border-radius: 15px;
+	display: flex;
+	height: 70px;
+	justify-content: center;
+	transition: background-color 0.5s ease,
+							border-color 0.5s ease,
+							box-shadow 0.5s ease;
+	width: 70px;
+}
+
+ul li label .icon-box .fa {
+	color: #222222;
+	font-size: 30px;
+	transition: color 0.5s ease,
+							text-shadow 0.5s ease;
+}
+.btn-out{
+	color:white;
+	font-size:18px;
+	padding:20px 40px;
+    background:black;
+	border:2px solid #f4f5ed;
+	background-image:url("{% static "Images/chef.png" %}");
+	background-repeat: no-repeat;
+	position:relative;
+	margin-top:6%;
+	margin-left:7.5%;
+
+
+}
+</style>
+</head>
+<body>
+<form method="post"  action="{% url "quantity" %}">
+
+{% csrf_token %}
+
+<ul>
+	<li>
+		<label for="phone">
+			<input type="checkbox" id="phone" name="chk" value="1">
+			<div class="icon-box">
+				<img src="{% static "Images/one.png" %}" width="50" height="50">
+			</div>
+		</label>
+	</li>
+
+	<li>
+		<label for="plane">
+			<input type="checkbox" id="plane" name="chk" value="2">
+			<div class="icon-box">
+				<img src="{% static "Images/two.png" %}" width="50" height="50">
+			</div>
+		</label>
+	</li>
+
+	<li>
+		<label for="moon">
+			<input type="checkbox" id="moon" name="chk" value="3">
+			<div class="icon-box">
+				<img src="{% static "Images/three.png" %}"width="50" height="50">
+			</div>
+		</label>
+	</li>
+
+	<li>
+		<label for="wifi">
+			<input type="checkbox" id="wifi" name="chk" value="4">
+			<div class="icon-box">
+				<img src="{% static "Images/four.png" %}" width="50" height="50">
+			</div>
+		</label>
+	</li>
+
+	<li>
+		<label for="volume">
+			<input type="checkbox" id="volume" name="chk" value="5">
+			<div class="icon-box">
+				<img src="{% static "Images/five.png" %}" width="50" height="50">
+			</div>
+		</label>
+	</li>
+
+	<li>
+		<label for="bluetooth">
+			<input type="checkbox" id="bluetooth" name="chk" value="6">
+			<div class="icon-box">
+				<img src="{% static "Images/six.png" %}" width="50" height="50">
+			</div>
+		</label>
+	</li>
+</ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $("input[name=chk]").change(function () {
+  var max =1;
+  if ($("input[name=chk]:checked").length == max) {
+    $("input[name=chk]").attr('disabled', 'disabled');
+    $("input[name=chk]:checked").removeAttr('disabled');
+  } else {
+    $("input[name=chk]").removeAttr('disabled');
+  }
+});
+</script>
+
+    <button class="btn-out" ><h3 style="color:#f4f5ed;margin-left:2.8em;">Proceed</h3></button></form>
+<style type="text/css">
+	#videoBG{
+		position: fixed;
+		z-index: -1;
+		width:100%;
+		height:auto;
+	}
+	@media(min-aspect-ratio:16/9){
+		#videoBG{
+			width:100%;
+			height: auto;
+		}
+	}
+	@media(max-aspect-ratio:16/9){
+		#videoBG{
+			width:auto;
+			height:100%;
+		}
+	}
+</style>
+<video id="videoBG" autoplay muted loop>
+	<source src="{% static "Video/57.mp4" %}" type="video/mp4">
+</video>
+
+
+</body>
+</html>

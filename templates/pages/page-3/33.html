@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+body {
+  background-color:black;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+h1 {
+  position: relative;
+  margin: 0 auto;
+  top: 25vh;
+  width: 100vw;
+  text-align: center;
+  font-family: 'Amatic SC';
+  font-size: 10vh;
+  color: white;
+  opacity: .75;
+  animation: pulse 2.5s linear infinite;
+}
+@keyframes bubble {
+  0% {
+    transform: scale(.15, .15);
+    top: 80%;
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(.33, .33);
+    top: 60%;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+    opacity: .25;
+  }
+  50% {
+    transform: scale(1.2, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: .25;
+  }
+}
+	</style>
+</head>
+<body>
+
+<h1>Cooking in progress..</h1>
+
+</body>
+</html>
