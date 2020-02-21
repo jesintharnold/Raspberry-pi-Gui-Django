@@ -16,3 +16,7 @@ Making a GUI for Vending Machine using Django with Kiosk Mode
    -  Start the server using DIr>python manage.py runserver
    
    -  Edit the HTML files if you want 
+   
+   - Create autoserverrun script         (https://www.raspberrypi.org/forums/viewtopic.phpf=28&t=257749&p=1571618&hilit=django+auto+start#p1571618)
+    
+   -  Enable KIOSK Mode in Raspberry pi  (https://www.youtube.com/watch?v=I2laR5G5FFo)
